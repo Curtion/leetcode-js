@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "启动程序",
-      "program": "${workspaceFolder}/array/27-移除元素-easy.js"
+      "program": "${fileDirname}/${fileBasenameNoExtension}.js"
     }
   ]
 }
