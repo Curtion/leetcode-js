@@ -19,7 +19,7 @@
 
 化简：![img](https://latex.codecogs.com/svg.latex?a_{n+1}%20=%20a_{n}%20-%20\frac{a_{n}^{2}-a}{2a_{n}}%20=%20\frac{a_{n}+\frac{a}{a_{n}}%20}{2})
 
-也有人把这种方程叫做状态转移方程，其中![img](https://latex.codecogs.com/svg.latex?a)为代开根的值,![img](https://latex.codecogs.com/svg.latex?a_{n+1})为n+1次迭代后的平方根，n越大越趋近于实际值
+也有人把这种方程叫做状态转移方程，其中![img](https://latex.codecogs.com/svg.latex?a)为待开根的值,![img](https://latex.codecogs.com/svg.latex?a_{n+1})为n+1次迭代后的平方根，n越大越趋近于实际值
 
 ## 实现
 
