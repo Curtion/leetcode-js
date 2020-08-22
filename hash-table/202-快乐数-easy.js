@@ -46,18 +46,15 @@ var isHappy = function(n) {
     let map = []
     while(res !== 1) {
       res = 0
-      for(let i = 0; i < map.length; i++) {
-        for(let j = i + 1; j < map.length; j++) {
-          if(map[i] === map[j]) {
-            return false
-          }
-        }
-      }
       for(let i = 0; i < narr.length; i++) {
         res = res + Number(narr[i])*Number(narr[i])
       }
       narr = res.toString().split('')
-      map.push(res)
+      if(map.includes(res)) {
+        return false
+      } else {
+        map.push(res)
+      }
     }
     return true
 };
