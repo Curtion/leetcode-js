@@ -46,15 +46,22 @@
  * @return {string[]}
  */
 var binaryTreePaths = function (root) {
-  let res = []
-  let arr = []
-  let tree = (root, arr) => {
+  let res = [];
+  let deep = (root, path) => {
     if (root === null) {
-      res.push([...arr])
+      return
     }
-    arr.push(root.val)
+    path = path + root.val.toString();
+    if (root.left === null && root.right === null) {
+      res.push(path)
+    } else {
+      path = path + '->'
+      deep(root.left, path)
+      deep(root.right, path)
+    }
   }
-  tree(root, arr)
+  deep(root, '')
+  return res
 };
 // @lc code=end
 
