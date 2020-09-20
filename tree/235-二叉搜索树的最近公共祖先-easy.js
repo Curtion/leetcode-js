@@ -63,22 +63,14 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function (root, p, q) {
-  let res = root
-  let deep = (root) => {
-    if (root === null) {
-      res = root
-      return
-    }
-    let left = deep(root.left)
-    let right = deep(root.right)
-    if ((left === p && right === q) || (left === q && right === p)) {
-      res = root
-    }
-    res = root
+const lowestCommonAncestor = (root, p, q) => {
+  if (p.val < root.val && q.val < root.val) {
+    return lowestCommonAncestor(root.left, p, q);
   }
-  deep(root)
-  return res
+  if (p.val > root.val && q.val > root.val) {
+    return lowestCommonAncestor(root.right, p, q);
+  }
+  return root;
 };
 // @lc code=end
 
