@@ -63,15 +63,9 @@
  * @return {void} Do not return anything, modify node in-place instead.
  */
 var deleteNode = function (node) {
-  if (node === null)
-    return node;
-
-  let next = node.next;
-  let temp = node.val;
-  node.val = next.val;
-  next.val = temp;
-
-  node.next = next.next;
+  if (node === null) return node;
+  node.val = node.next.val
+  node.next = node.next.next
 };
 // @lc code=end
 
