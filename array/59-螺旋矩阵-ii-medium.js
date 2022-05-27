@@ -54,38 +54,48 @@ var generateMatrix = function (n) {
   let col = 0;
   let direction = "right";
   arr[row][col] = 1;
-  for (let i = 2; i <= n * n; i++) {
+  let i = 2;
+  while (true) {
+    if (arr.every((item) => item.every((jtem) => jtem !== 0))) break;
     if (direction === "right") {
-      if (col + 1 <= n && arr[row][col + 1] === 0) {
+      if (col + 1 < n && arr[row][col + 1] === 0) {
         arr[row][col + 1] = i;
         col++;
+        i++;
       } else {
         direction = "bottom";
       }
+      continue;
     }
     if (direction === "left") {
       if (col - 1 >= 0 && arr[row][col - 1] === 0) {
         arr[row][col - 1] = i;
         col--;
+        i++;
       } else {
         direction = "top";
       }
+      continue;
     }
     if (direction === "top") {
       if (row - 1 >= 0 && arr[row - 1][col] === 0) {
         arr[row - 1][col] = i;
         row--;
+        i++;
       } else {
         direction = "right";
       }
+      continue;
     }
     if (direction === "bottom") {
-      if (row + 1 <= n && arr[row + 1][col] === 0) {
+      if (row + 1 < n && arr[row + 1][col] === 0) {
         arr[row + 1][col] = i;
         row++;
+        i++;
       } else {
         direction = "left";
       }
+      continue;
     }
   }
   return arr;
